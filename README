@@ -37,3 +37,8 @@ $ set PATH=%PATH%;C:\Qt\5.12.12\msvc2017\bin
 $ cmd.exe /c build-libffi.bat
 $ cmd.exe /c build-ultimate-x86.bat
 ```
+
+To build x86_x64
+```cmd
+ powershell.exe -noprofile -executionpolicy bypass -file .\build-ultimate-x86-x64.ps1
+```

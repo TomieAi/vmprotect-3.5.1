@@ -8,9 +8,10 @@ if exist "%ROOT_DIR%\tmp" rmdir /q /s "%ROOT_DIR%\tmp"
 msbuild vmprotect.sln /p:Configuration=Ultimate /p:Platform=Win32 /t:VMProtectSDK
 msbuild vmprotect.sln /p:Configuration=Ultimate /p:Platform=x64 /t:VMProtectSDK
 msbuild vmprotect.sln /p:Configuration=Ultimate /p:Platform=x64 /t:VMProtectCon
-msbuild vmprotect.sln /p:Configuration=Ultimate /p:Platform=x64 /t:VMProtect
+@REM msbuild vmprotect.sln /p:Configuration=Ultimate /p:Platform=x64 /t:VMProtect
 
-windeployqt "%ROOT_DIR%\bin\64\Ultimate\VMProtect.exe"
+@REM windeployqt "%ROOT_DIR%\bin\64\Ultimate\VMProtect.exe"
 
 copy "%ROOT_DIR%\bin\32\Release\*" "%ROOT_DIR%\bin\64\Ultimate"
 copy "%ROOT_DIR%\bin\64\Release\*" "%ROOT_DIR%\bin\64\Ultimate"
+exit
