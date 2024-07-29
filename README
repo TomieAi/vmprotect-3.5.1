@@ -16,8 +16,8 @@ $ cd C:\
 
 $ mkdir Qt
 $ cd Qt
-$ aqt install-qt windows desktop 5.12.12 win32_msvc2017
-$ aqt install-qt windows desktop 5.12.12 win64_msvc2017_64
+$ python -m aqt install-qt windows desktop 5.12.12 win32_msvc2017
+$ python -m aqt install-qt windows desktop 5.12.12 win64_msvc2017_64
 ```
 
 4. To build x64 version, in `x64 Native Tools Command Prompt for VS 2022`:
