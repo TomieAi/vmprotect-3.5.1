@@ -1,1 +1,45 @@
-//todo
+name: build windows.
+
+on:
+    workflow_dispatch: 
+        inputs:
+            tag_date:
+                description: 'tag date'
+                type: string
+                default: "9102024"
+                required: true
+
+jobs:
+    install-qt:
+        if: github.event.inputs.tag_date != ''
+        name: Installing QT
+        runs-on: windows-2019
+        steps:
+        - uses: actions/setup-python@v5
+          with:
+            python-version: '3.9'
+            cache: 'pip'
+        - run: |
+            pip install aqtinstall
+            cd C:\
+            mkdir Qt
+            cd Qt
+            python -m aqt install-qt windows desktop 5.12.12 win32_msvc2017
+            python -m aqt install-qt windows desktop 5.12.12 win64_msvc2017_64
+            cd ../
+
+    # build-windows:
+    #     if: github.event.inputs.tag_date != ''
+    #     name: Windows
+    #     runs-on: windows-2019
+    #     steps:
+    #         - uses: actions/checkout@v4
+    #         - uses: ilammy/msvc-dev-cmd@v1
+    #           with:
+    #             vsversion: "17.0"
+    #         name: Build Windows Bin x86_x64
+    #         run: |
+    #             cd %GITHUB_WORKSPACE%
+                
+            
+
